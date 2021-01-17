@@ -1,0 +1,108 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Audiowide';
+  letter-spacing: 2px;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(0deg, rgba(9, 9, 121, 1) 14%, rgba(2, 162, 222, 1) 95%);
+  padding: 0.8% 5%;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  font-size: 24px;
+  width: 20%;
+}
+
+.left-side>span {
+  color: var(--primary-color);
+  margin-left: 10px;
+}
+
+.right-side {
+  width: 80%;
+  text-align: right;
+}
+
+.right-side>span {
+  display: inline-block;
+  position: relative;
+}
+
+#number-of-products-added {
+  font-weight: bold;
+  top: -1px;
+  right: -1px;
+  position: absolute;
+  background: darkred;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  z-index: 50;
+  font-family: 'Electrolize';
+}
+
+/* <----------- Media Querys -----------> */
+
+@media screen and (max-width: 480px) {
+  header {
+    padding: 5% 8%;
+  }
+  .left-side, .right-side {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  .left-side {
+    padding: 0 3% 3%;
+  }
+  .right-side {
+    margin: 0 0 3.5%;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .left-side {
+    font-size: 8vw;
+  }
+  .right-side i:not(.fa-money-check):not(.fa-search) {
+    border-left: none;
+  }
+  .right-side i {
+    border-bottom: 1px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+  }
+  .right-side>i:last-child {
+    border-bottom: none;
+  }
+  .right-side i:after {
+    display: table;
+    margin: auto;
+    font-family: 'Electrolize', system-ui, sans-serif;
+  }
+  .right-side i:nth-child(1):after {
+    content: "Añadir dinero a tu cartera"
+  }
+  .right-side i:nth-child(2):after {
+    content: "Tu cartera"
+  }
+  .right-side i:nth-child(3):after {
+    content: "Tus gastos"
+  }
+  .right-side i:nth-child(4):after {
+    content: "Carrito de compras"
+  }
+  .right-side i:nth-child(5):after {
+    content: "Ayuda"
+  }
+  #number-of-products-added {
+    top: 25%;
+  }
+}
