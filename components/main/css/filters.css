@@ -1,0 +1,158 @@
+/* <----------- Filtro deProductos -----------> */
+
+.edit-products>div {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 0 5%;
+}
+
+.edit-products>div>h4 {
+  margin: 3.5% 0;
+}
+
+/* <----------- Orden alfabetico -----------> */
+
+.order-alphabetical {
+  padding: 5% 0;
+}
+
+select {
+  padding: 1.5% 3%;
+  background: #E0E0E0;
+  border: none;
+}
+
+/* <----------- Precio -----------> */
+
+.prizes {
+  padding: 3% 0;
+}
+
+.prizes>span {
+  display: flex;
+  align-items: center;
+  padding: 3.5% 0;
+}
+
+.prizes input[type="range"] {
+  margin-left: auto;
+  width: 55%;
+}
+
+input[type="number"] {
+  display: inline;
+  width: 25%;
+  border: none;
+  background: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.range-prize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.range-prize>input[type="number"] {
+  padding: 5px;
+}
+
+.range-prize>button {
+  background: rgba(0, 0, 0, 0.2);
+  display: table;
+  margin-left: 5%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+.range-prize>button:hover {
+  background: black;
+}
+
+/* <----------- Marcas -----------> */
+
+.filters>h4 {
+  padding-top: 3%;
+}
+
+.filters>span {
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 5% 3%;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.filters>button {
+  background-color: rgba(171, 0, 9, 0.75);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  width: 90%;
+  padding: 4% 0;
+  display: block;
+  margin: 5% auto;
+  font-family: 'Electrolize', system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1023px) {
+  .edit-products>div {
+    margin: 0 3.5%;
+  }
+  form {
+    margin-right: 0;
+  }
+  .order-alphabetical {
+    order: 3;
+  }
+  .prizes {
+    order: 2;
+  }
+  .filters {
+    order: 1;
+  }
+  .filters>h4 {
+    padding-top: 0;
+  }
+  .filters>span {
+    padding: 3%;
+  }
+  .filters>button {
+    padding: 3% 0;
+  }
+  .prizes input[type="range"] {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  select {
+    width: 80%;
+  }
+  .order-alphabetical>span {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 553px) {
+  select, .order-alphabetical>span {
+    width: 100%;
+  }
+  .order-alphabetical>span {
+    margin-bottom: 3%;
+    display: table;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .filters>span {
+    padding: 5%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .filters>button {
+    padding: 5% 0;
+    width: 100%;
+  }
+}
