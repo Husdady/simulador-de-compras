@@ -1,0 +1,149 @@
+:root {
+  --primary-color: rgba(255, 255, 255, 0.9);
+  --secondary-color: rgba(255, 255, 255, 0.7);
+  --th-color: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E0E0E0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #545454;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #545454;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  overflow: hidden;
+  width: 100%;
+}
+
+i {
+  padding: 10px;
+  font-size: 18px;
+  color: var(--secondary-color);
+}
+
+.right-side i:not(.fa-money-check):not(.fa-search) {
+  border-left: 1px solid var(--secondary-color);
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="range"]:hover {
+  cursor: grab;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  background-color: #ddd;
+  height: 20px;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 20px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: black;
+  border-radius: 50%;
+  box-shadow: -210px 0 0 200px #666;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: 0;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: black;
+  box-shadow: -210px 0 0 200px #666;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: 0;
+}
+
+i:hover, .product>img:hover, .left-side:hover, #add-to-cart:hover, button:hover, select:hover, input[type="checkbox"]:hover, label:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+span label:before {
+  content: '';
+  margin-right: 5%;
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  font-size: 11px;
+  padding: 3px;
+  border-radius: 3px;
+  background: #c4c4c4;
+}
+
+input[type='checkbox']:checked+label:before {
+  content: '\f00c';
+  font-weight: 900;
+  font-family: 'Font Awesome 5 Pro';
+  display: inline-flex;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+button {
+  border: none;
+}
+
+button:focus, input[type='range']:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.85);
+}
+
+@media screen and (max-width: 280px) {
+  body, footer {
+    font-size: 5vw !important;
+  }
+  i {
+    font-size: inherit;
+  }
+}
