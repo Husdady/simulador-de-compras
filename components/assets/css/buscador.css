@@ -1,0 +1,46 @@
+/* <----------- Buscador -----------> */
+form{
+  display: inline-flex;
+  margin-right: 3.5%;
+}
+input[type="text"]{
+  padding: 10px 20px;
+  border: none;
+  background: rgba(255,255,255, 0.6);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+input[type="text"]:focus, form > button:focus, select:focus,
+input[type=number]:focus{
+  outline: none;
+}
+::placeholder {
+  color: black;
+  opacity: 0.6;
+}
+form > button {
+  padding: 10px;
+  background: rgba(0,0,0, 0.8);
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+@media screen and (max-width: 1023px){
+  form{
+    float: right;
+  }
+}
+@media screen and (max-width: 640px){
+  form{
+    float: none;
+    margin-top: 5%;
+    width: 100%
+  }
+  input[type="text"]{
+    width: 80%;
+  }
+  form > button{
+    width: 20%;
+  }
+}
