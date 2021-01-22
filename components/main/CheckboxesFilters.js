@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import categoryFilter from '../../js/category-filter';
-import NotFound from '../assets/NotFound';
 
 class Category extends Component{
   render(){
-    const { id, textLabel, numberProducts, functionX } = this.props;   
+    const { id, textLabel, numberProducts, onClick } = this.props;   
     return(
       <span>
         <input type="checkbox" id={id} />
-        <label onClick={functionX} htmlFor={id}>{textLabel} ({numberProducts})</label>
+        <label onClick={onClick} htmlFor={id}>{textLabel} ({numberProducts})</label>
       </span>
     )
   }
@@ -18,9 +16,7 @@ class CheckboxesFilters extends Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      showMessage: true
-    }
+    this.checkAll = this.checkAll.bind(this);
   }
 
   componentDidMount(){
@@ -45,11 +41,11 @@ class CheckboxesFilters extends Component{
 }
 
   render(){
-    const notFound = <NotFound text="Ninguna casilla a sido marcada..."/>;
+
     return(
       <div className="filters">
         <h4>Marcas de teléfonos</h4>
-        <Category id="todos" textLabel="Todos" numberProducts="60" functionX={this.checkAll} />
+        <Category id="todos" textLabel="Todos" numberProducts="60" onClick={this.checkAll} />
         <Category id="blackberry" textLabel="BlackBerry" numberProducts="6" />
         <Category id="huawei" textLabel="Huawei" numberProducts="6" />
         <Category id="lg" textLabel="LG" numberProducts="6" />
@@ -62,9 +58,8 @@ class CheckboxesFilters extends Component{
         <Category id="zte" textLabel="ZTE" numberProducts="6" />
 
         <button onClick={
-        () => {
-          alert("xd")
-        }
+        () => { this.props.changeElements() }  
+       
         }>Aplicar filtros</button>   
       </div>
     )
