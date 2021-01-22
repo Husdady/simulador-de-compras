@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/simulador-de-compras/static/css/main.55263b12.chunk.css",
-    "main.js": "/simulador-de-compras/static/js/main.dbb34279.chunk.js",
-    "main.js.map": "/simulador-de-compras/static/js/main.dbb34279.chunk.js.map",
+    "main.css": "/simulador-de-compras/static/css/main.64fac848.chunk.css",
+    "main.js": "/simulador-de-compras/static/js/main.77f40cda.chunk.js",
+    "main.js.map": "/simulador-de-compras/static/js/main.77f40cda.chunk.js.map",
     "runtime-main.js": "/simulador-de-compras/static/js/runtime-main.5886f14f.js",
     "runtime-main.js.map": "/simulador-de-compras/static/js/runtime-main.5886f14f.js.map",
-    "static/js/2.474e1f4b.chunk.js": "/simulador-de-compras/static/js/2.474e1f4b.chunk.js",
-    "static/js/2.474e1f4b.chunk.js.map": "/simulador-de-compras/static/js/2.474e1f4b.chunk.js.map",
+    "static/js/2.56226024.chunk.js": "/simulador-de-compras/static/js/2.56226024.chunk.js",
+    "static/js/2.56226024.chunk.js.map": "/simulador-de-compras/static/js/2.56226024.chunk.js.map",
     "static/js/3.9d3d8211.chunk.js": "/simulador-de-compras/static/js/3.9d3d8211.chunk.js",
     "static/js/3.9d3d8211.chunk.js.map": "/simulador-de-compras/static/js/3.9d3d8211.chunk.js.map",
     "index.html": "/simulador-de-compras/index.html",
-    "static/css/main.55263b12.chunk.css.map": "/simulador-de-compras/static/css/main.55263b12.chunk.css.map",
-    "static/js/2.474e1f4b.chunk.js.LICENSE.txt": "/simulador-de-compras/static/js/2.474e1f4b.chunk.js.LICENSE.txt"
+    "static/css/main.64fac848.chunk.css.map": "/simulador-de-compras/static/css/main.64fac848.chunk.css.map",
+    "static/js/2.56226024.chunk.js.LICENSE.txt": "/simulador-de-compras/static/js/2.56226024.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5886f14f.js",
-    "static/js/2.474e1f4b.chunk.js",
-    "static/css/main.55263b12.chunk.css",
-    "static/js/main.dbb34279.chunk.js"
+    "static/js/2.56226024.chunk.js",
+    "static/css/main.64fac848.chunk.css",
+    "static/js/main.77f40cda.chunk.js"
   ]
 }
