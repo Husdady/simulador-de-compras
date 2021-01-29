@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/simulador-de-compras/static/css/main.02954c0c.chunk.css",
-    "main.js": "/simulador-de-compras/static/js/main.b941ee5b.chunk.js",
-    "main.js.map": "/simulador-de-compras/static/js/main.b941ee5b.chunk.js.map",
+    "main.js": "/simulador-de-compras/static/js/main.401ad305.chunk.js",
+    "main.js.map": "/simulador-de-compras/static/js/main.401ad305.chunk.js.map",
     "runtime-main.js": "/simulador-de-compras/static/js/runtime-main.f5e36dba.js",
     "runtime-main.js.map": "/simulador-de-compras/static/js/runtime-main.f5e36dba.js.map",
     "static/js/2.c60add8f.chunk.js": "/simulador-de-compras/static/js/2.c60add8f.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f5e36dba.js",
     "static/js/2.c60add8f.chunk.js",
     "static/css/main.02954c0c.chunk.css",
-    "static/js/main.b941ee5b.chunk.js"
+    "static/js/main.401ad305.chunk.js"
   ]
 }
