@@ -1,0 +1,119 @@
+#wrapper, #expenses{
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.product-added, .expenses{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,0.75);
+  padding: 0 0 5%;
+  width: 90%;
+  margin: 0 auto 15px;
+}
+
+.product-added:last-of-type, .expenses:last-of-type{
+  margin-bottom: 25px;
+}
+
+.product-added figure{
+  margin: 0;
+  width: 30%;
+}
+
+.product-added figure img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 150px;
+}
+
+.information-product-added{
+  text-align: left;
+  width: 70%;
+  overflow: hidden;
+}
+
+.information-product-added span{
+  display: block;
+}
+
+.buy{
+  background-color: #D6C333;
+  padding: 5px 0 7px;
+  width: 60%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+}
+
+.buy:before{
+  content: '\f07a';
+  font-weight: 900;
+  font-family: 'Font Awesome 5 Pro';
+}
+
+.trash{
+  color: rgba(255, 50, 20, 0.85);
+  font-weight: normal;
+}
+
+.trash{
+  margin-left: 5%;
+}
+
+#wrapper button:hover, #expenses button:hover{
+  opacity: 0.6;
+}
+
+#buy-all, #delete-record, #delete-all-products{
+  background-color: #D6C333;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+#delete-all-products{
+  width: 80%;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 900px){
+  .trash:hover{
+    border-radius: 4px;
+    background: rgba(255,255,255,0.15);
+  }
+}
+
+@media screen and (max-width: 640px){
+  .product-added, .expenses{
+    display: block;
+  }
+  .product-added figure{
+    margin: 0 auto 5px;
+  }
+  .information-product-added{
+    text-align: center;
+    width: 100%;
+  }
+  .information-product-added span{
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 640px){
+  .product-added figure{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 360px){
+  #buy-all, #delete-all-products{
+    width: 100%;
+    padding: 5% 0;
+  }
+}
