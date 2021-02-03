@@ -31,7 +31,7 @@ form > button {
     float: right;
   }
 }
-@media screen and (max-width: 640px){
+@media screen and (max-width: 705px){
   form{
     float: none;
     margin-top: 5%;
