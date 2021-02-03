@@ -7,9 +7,20 @@ import CheckboxesFilters from './CheckboxesFilters';
 const Filters = props => {
     return(
       <Fragment>
-        <OrderAlphabetical />
-        <PrizesFilters />
-        <CheckboxesFilters changeElements={props.changeElements}/>
+        <OrderAlphabetical
+        onSearch={props.onSearch}
+        changeOrder={props.changeOrder}
+        products={props.products}
+        changeTextNotFound={props.changeTextNotFound}
+        />
+        <PrizesFilters
+        searchByPrizes={props.searchByPrizes}
+        changeTextNotFound={props.changeTextNotFound}
+        />
+        <CheckboxesFilters
+        changeElements={props.changeElements}
+        changeTextNotFound={props.changeTextNotFound}
+        />
       </Fragment>
     )
   }
