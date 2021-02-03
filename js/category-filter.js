@@ -1,21 +1,30 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-import Product from '../components/main/Product';
-import NotFound from '../components/assets/NotFound';
+import celulares from '../json/celulares';
 
-function categoryFilter(){
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]'),
-  checkboxesChecked = document.querySelectorAll('input[type="checkbox"]:checked');
+const categoryFilter = () =>{
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]'),checkboxesChecked = document.querySelectorAll('input[type="checkbox"]:checked'), select = document.querySelector("select"), range = document.getElementById('set-range-prize');
 
-  if (checkboxes.length === checkboxesChecked.length){
-    console.log("Xd")
-  } else if (checkboxesChecked.length !== 0){
-    console.log('lmao')
-  } else {
-    <Product numberView={2} />
-    // ReactDOM.render(<NotFound text="Ninguna casilla ha sido marcada..." />, document.getElementsByClassName('products')[0])
+  select.removeAttribute('disabled');
+  range.removeAttribute('disabled');
+
+  if (checkboxes.length === checkboxesChecked.length || checkboxes[0].checked){
+    return celulares;
   }
-  
+
+  else if (checkboxesChecked.length !== 0){
+    
+    return celulares.filter(item=> {
+      for (let input of checkboxesChecked){
+        if (item.modelo.toLowerCase().indexOf(input.id.toLowerCase()) !== -1){
+          return item;
+        }
+      }
+    })
+
+  } else {
+    select.setAttribute('disabled', true);
+    range.setAttribute('disabled', true);
+    return [];
+  }
 }
 
 export default categoryFilter;
