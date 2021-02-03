@@ -1,0 +1,90 @@
+.wrap{
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.information-product{
+  width: 25%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  font-family: 'Roboto', system-ui, sans-serif;
+  padding: 0;
+  text-align: center;
+  display: table;
+}
+
+.information-product figure>img {
+  display: block;
+  margin: auto;
+  width: 80%;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.information-product > h3{
+  color: #D6C333;
+  font-weight: normal;
+  width: 85%;
+  margin: auto;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+.information-product h3:last-child{
+  border-bottom: none;
+}
+
+.information-product span{
+  color: white;
+}
+
+#close-modal{
+  position: fixed;
+  font-size: 36px;
+  right: 1.5%;
+  top: 0;
+  z-index: 99999;
+}
+
+@media screen and (max-width: 1280px){
+  .information-product{
+  width: 50%;
+  }
+  .information-product figure img{
+    width: initial;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 635px){
+  .information-product{
+    width: 80%;
+    border: none;
+    padding: 3.5% 5% 1.5%;
+  }
+  .information-product figure{
+    margin: 0;
+  }
+  .information-product figure img{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .information-product{
+    width: 100%;
+    }
+}
+
+@media screen and (max-width: 280px){
+  #close-modal{
+    font-size: inherit;
+  }
+}

@@ -9,6 +9,7 @@
 
 .edit-products {
   width: 26.5%;
+  max-width: 2000px;
   margin-right: 1.5%;
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   font-family: "Roboto", system-ui, sans-serif;
@@ -16,7 +17,7 @@
 
 .products {
   width: 72%;
-  display: flex;
+  max-width: 8000px;
   flex-wrap: wrap;
 }
 
@@ -25,19 +26,27 @@
 .product {
   font-family: 'Roboto', system-ui, sans-serif;
   border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 9px 2px rgb(0 0 0 / 15%);
   text-align: center;
-  padding: 3% 0;
-  width: 25%;
+  padding: 2.5% 0 3%;
+  width: calc(25% - 20px);
+  margin: 10px;
+  max-width: 1000px;
+  display: inline-table;
 }
 
-.product>img {
+.product figure>img {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 100%;
   max-width: 300px;
   height: 15vw;
   max-height: 250px;
   object-fit: cover;
+}
+
+.product figure>img:hover {
+  cursor: pointer;
 }
 
 .product>h3, .product>h4 {
@@ -48,28 +57,38 @@
   color: darkred;
 }
 
-#count {
+.count {
   width: 30%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   line-height: 2;
+  display: block;
 }
 
-#quantity {
+.quantity {
   display: flex;
   justify-content: center;
   width: 90%;
   margin: 1% auto 8%;
 }
 
-#quantity>button {
+.quantity>button {
   background: rgba(255, 255, 255, 0.3);
   padding: 0 10px;
 }
 
-#quantity>button>i {
-  color: black;
+.quantity>button:after {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
   font-size: 10px;
+}
+
+.increase:after{
+  content: '\f067';
+}
+
+.decrease:after{
+  content: '\f068';
 }
 
 .add-to-cart {
@@ -85,9 +104,17 @@
   opacity: 0.6;
 }
 
+.add-to-cart:before{
+  content: '\f217';
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
+}
+
 .add-to-cart>i {
   font-size: 14px;
 }
+
+/* Producto no encontrado */
 
 #not-found-products {
   font-family: "Poiret One";
@@ -98,15 +125,17 @@
   padding: 25% 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .edit-products {
-    width: 35%;
+    width: 33.5%;
   }
   .products {
     width: 65%;
   }
   .product {
     width: 33.33%;
+    margin: 0;
+    box-shadow: none;
   }
 }
 
@@ -120,13 +149,19 @@
   }
   .products {
     width: 100%;
+    display: flex;
   }
   .product {
     width: 25%;
     border-radius: 0;
-    margin: 0;
+    display: inline-block;
+    padding: 0.5% 3% 35px;
   }
-  .product>img {
+  .product figure {
+    margin: 0;
+    padding: 25px 0 5px;
+  }
+  .product figure>img {
     height: 200px;
   }
 }
@@ -137,18 +172,16 @@
   }
 }
 
-@media screen and (max-width: 640px) {
-  .product {
-    padding: 3% 1.5%;
-  }
-}
-
 @media screen and (max-width: 540px) {
   .product {
     width: 50%;
-    padding: 3% 5%;
+    padding: 1.5% 0 8%;
   }
-  .product>img {
+  .product figure{
+    margin: revert;
+    padding: 0;
+  }
+  .product figure>img {
     height: 180px;
   }
   #not-found-products {
@@ -156,14 +189,27 @@
   }
 }
 
+@media screen and (max-width: 360px) {
+  .product {
+    padding: 5% 3% 12%;
+  }
+  .product figure {
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: 280px) {
   .product {
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-bottom: 5%;
-    padding: 8% 5%;
+    display: block;
+    padding: 0 0 10%;
   }
-  .product>img {
+  .product figure {
+    margin: revert;
+  }
+  .product figure>img {
     height: auto;
   }
   .add-to-cart>i {

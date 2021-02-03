@@ -121,11 +121,11 @@ input[type="number"] {
   }
   .prizes input[type="range"] {
     width: 100%;
-    max-width: 500px;
+    max-width: 425px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 705px) {
   select {
     width: 80%;
   }
