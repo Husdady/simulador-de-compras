@@ -1,7 +1,7 @@
 function Icon(props){
-    const { iconName, iconTitle, iconStyle } = props;
+    const { iconName, iconTitle, iconStyle, id, onClick } = props;
     return (
-      <i className={iconName} title={iconTitle} style={iconStyle}></i>
+      <i onClick={onClick} className={iconName} title={iconTitle} style={iconStyle} id={id}></i>
     )
 }
 
