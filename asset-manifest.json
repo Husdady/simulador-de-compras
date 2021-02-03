@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/simulador-de-compras/static/css/main.998004e2.chunk.css",
-    "main.js": "/simulador-de-compras/static/js/main.930367af.chunk.js",
-    "main.js.map": "/simulador-de-compras/static/js/main.930367af.chunk.js.map",
+    "main.js": "/simulador-de-compras/static/js/main.934242a4.chunk.js",
+    "main.js.map": "/simulador-de-compras/static/js/main.934242a4.chunk.js.map",
     "runtime-main.js": "/simulador-de-compras/static/js/runtime-main.26271ca7.js",
     "runtime-main.js.map": "/simulador-de-compras/static/js/runtime-main.26271ca7.js.map",
-    "static/js/2.691ff792.chunk.js": "/simulador-de-compras/static/js/2.691ff792.chunk.js",
-    "static/js/2.691ff792.chunk.js.map": "/simulador-de-compras/static/js/2.691ff792.chunk.js.map",
+    "static/js/2.dd11ee95.chunk.js": "/simulador-de-compras/static/js/2.dd11ee95.chunk.js",
+    "static/js/2.dd11ee95.chunk.js.map": "/simulador-de-compras/static/js/2.dd11ee95.chunk.js.map",
     "static/js/3.572ebb5b.chunk.js": "/simulador-de-compras/static/js/3.572ebb5b.chunk.js",
     "static/js/3.572ebb5b.chunk.js.map": "/simulador-de-compras/static/js/3.572ebb5b.chunk.js.map",
     "index.html": "/simulador-de-compras/index.html",
     "static/css/main.998004e2.chunk.css.map": "/simulador-de-compras/static/css/main.998004e2.chunk.css.map",
-    "static/js/2.691ff792.chunk.js.LICENSE.txt": "/simulador-de-compras/static/js/2.691ff792.chunk.js.LICENSE.txt"
+    "static/js/2.dd11ee95.chunk.js.LICENSE.txt": "/simulador-de-compras/static/js/2.dd11ee95.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.26271ca7.js",
-    "static/js/2.691ff792.chunk.js",
+    "static/js/2.dd11ee95.chunk.js",
     "static/css/main.998004e2.chunk.css",
-    "static/js/main.930367af.chunk.js"
+    "static/js/main.934242a4.chunk.js"
   ]
 }
