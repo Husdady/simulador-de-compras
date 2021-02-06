@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import './css/product.css';
-import productsAdded from '../../js/products-added';
+import showMessage from '../../js/message';
 
 class Product extends Component{
   state = {
-    stock: Number(this.props.stock),
-    prices: Number(this.props.stock)
+    stockMax: Number(this.props.stock)
   }
 
-  increase = e =>{
+  componentDidMount(){
+    const select = document.getElementsByTagName('select')[0];
+    select.disabled = false;
+  }
+
+  increase = (e, stock) =>{
     let value = e.target.parentElement.getElementsByClassName('count')[0].textContent;
-    if (Number(value) !== this.state.prices){
-        return e.target.parentElement.getElementsByClassName('count')[0].textContent = Number(value) + 1;
+    if (Number(value) !== Number(stock)){
+      return e.target.parentElement.getElementsByClassName('count')[0].textContent = Number(value) + 1;
     }
   }
 
@@ -43,7 +47,7 @@ class Product extends Component{
         <h4>$/. {precio}</h4>
 
         <div className="quantity">
-          <button className="increase" onClick={e => this.increase(e)}></button>
+          <button className="increase" onClick={e => this.increase(e, stock)}></button>
           
           <div className="count">{stock}</div>
           
@@ -54,9 +58,13 @@ class Product extends Component{
 
           let count = e.target.parentElement.getElementsByClassName('count')[0].textContent;
 
-          productsAdded(count);
+          Number(count) === 0 && showMessage(
+            'danger',
+            'Se produjo un error al añadir el producto al carrito',
+            'fa-window-close'
+            );
 
-          count > 0 && this.props.addShopCart(this.props.products, e.target.parentElement.getElementsByClassName('count')[0].textContent);
+          count > 0 && this.props.addShopCart(this.props.products, count);
           
           }}>
           &nbsp;&nbsp;Añadir al carrito</button>

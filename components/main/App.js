@@ -1,22 +1,29 @@
 import React, { Component, Fragment } from 'react';
-import Header from '../header/Header.js';
-import Footer from '../footer/Footer.js';
+import Shortcut from '../assets/Shortcut';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import Product from './Product';
 import Filters from './Filters';
 import celulares from '../../json/celulares';
 import NotFound from '../assets/NotFound';
 import InformationProduct from './InformationProduct';
+import showMessage from '../../js/message';
 
 class App extends Component{
 
-  state = {
-    allProducts: celulares,
-    textNotFound: "",
-    showModal: false,
-    position: undefined,
-    currentWindow: undefined,
-    shoppingCart: [],
-    expenses: []
+  constructor(props){
+    super(props);
+    let products = JSON.parse(localStorage.getItem('products'));
+    let expenses = JSON.parse(localStorage.getItem('expenses'));
+    this.state = {
+      allProducts: celulares,
+      textNotFound: "",
+      showModal: false,
+      position: undefined,
+      currentWindow: undefined,
+      shoppingCart: products === null ? [] : products,
+      expenses: expenses === null ? [] : expenses
+    }
   }
 
   /* Filtro de búsqueda */
@@ -84,26 +91,38 @@ class App extends Component{
 
   /* Agrega productos al carrito */
   addShopCart = (item, stock) => {
+    console.log(this.state.stock);
     const z = this.state.shoppingCart.find((x) => x.model === item.modelo);
     if (!z) {
-      const cellphone = {
+      let cellphone = {
         image: item.imagen,
         model: item.modelo,
         price: item.precio,
         stock: stock,
         totalPrice: item.precio * stock
     };
+    let productsInShoppingCart = [...this.state.shoppingCart, cellphone];
       this.setState({
-        shoppingCart: [...this.state.shoppingCart, cellphone]
+        shoppingCart: productsInShoppingCart
       })
+      localStorage.setItem('products', JSON.stringify(productsInShoppingCart));
+      showMessage(
+        'check',
+        'Se añadido el producto correctamente al carrito',
+        'fa-check-circle'
+      )
+    } else {
+      showMessage(
+        'danger',
+        'El producto ya ha sido añadido al carrito',
+        'fa-window-close'
+      )
     }
   };
 
   /* Muestra historial de gastos */
   addExpenses = item => {
-
     const y = this.state.shoppingCart.find((x) => x.model === item.model);
-
     if (y) {
       const expenses = {
         model: item.model,
@@ -111,17 +130,21 @@ class App extends Component{
         stock: item.stock,
         totalPrice: item.price * item.stock
       };
+      let allExpenses = [...this.state.expenses, expenses];
       this.setState({
-        expenses: [...this.state.expenses, expenses]
+        expenses: allExpenses
       })
+      localStorage.setItem('expenses', JSON.stringify(allExpenses))
     }
   };
 
   /* Muestra todos los productos comprados */
   allProductsPurchased = () => {
+    let purchased = [...this.state.shoppingCart, ...this.state.expenses]
     this.setState({
-      expenses: [...this.state.shoppingCart]
+      expenses: purchased
     })
+    localStorage.setItem('expenses', JSON.stringify(purchased));
   }
 
   /* Cambia el estado de shoppingCart a vacio para mostrar un mensaje de 'No se han agregado productos al carrito' cuando sea vacio */
@@ -136,21 +159,27 @@ class App extends Component{
   /* Elimina productos del carrito */
 
   deleteItem = newState =>{
+    let item = newState
     this.setState({
-      shoppingCart: newState
+      shoppingCart: item
     })
+    localStorage.setItem('products', JSON.stringify(item));
   }
 
   deleteExpenses = newState =>{
+    let item = newState
     this.setState({
       expenses: newState
     })
+    localStorage.setItem('expenses', JSON.stringify(item));
   }
 
   render(){
     return(
       <Fragment>
+        <Shortcut />
         <Header
+        allProducts={this.state.allProducts}
         onSearch={this.search}
         changeTextNotFound={this.changeTextNotFound}
         productsAdded={this.state.productsAdded}
