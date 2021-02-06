@@ -12,9 +12,13 @@ import Help from './Help';
 
 class Header extends Component{
 
-  state = {
-    money: 0,
-    mq: false
+  constructor(props){
+    super(props);
+    let addMoney = Number(localStorage.getItem('money'));  
+    this.state = {
+      money: addMoney === null ? 0 : addMoney,
+      mq: false
+    }
   }
 
   componentDidMount() {
@@ -31,20 +35,21 @@ class Header extends Component{
   }
 
   addMoney = newMoney =>{
-    let condition = /^[0]|[+|-|.]|[.]$/g;
-    if (document.getElementById('add-money').value === '' || condition.test(document.getElementById('add-money').value)){
-      return null;
-    } else {
-      this.setState({
-        money: this.state.money + Number(newMoney)
-      })
-    }
+    let condition = /^[0]/g, value = document.getElementById('add-money').value;
+    let newMoneyState = this.state.money + Number(newMoney);
+    if (value !== '' || condition.test(value))
+    this.setState({
+      money: newMoneyState
+    });
+    localStorage.setItem('money', newMoneyState);
   }
 
   spendMoney = value =>{
+    let reduceMoney = this.state.money - value;
     this.setState({
-      money: this.state.money - value
+      money: reduceMoney
     })
+    localStorage.setItem('money', reduceMoney);
   }
 
   deleteItem = (item, x) =>{
@@ -52,14 +57,16 @@ class Header extends Component{
     this.props.deleteItem(newState);
   }
 
-  deleteExpense = (item, x) =>{
-    const newState = x.filter(i => i.totalPrice !== item)
+  deleteExpense = (x, index) =>{
+    const newState = x.filter((e, i) => {
+    return i !== index;
+    });
     this.props.deleteExpenses(newState);
   }
 
   render(){
     return(
-      <header>
+      <header id="nav">
         <div className="left-side" title="">
           <img src={`${process.env.PUBLIC_URL}/img/box.png`} alt="box"/><span>Shop</span>Lit
         </div>
@@ -146,15 +153,21 @@ class Header extends Component{
 
         { this.props.currentWindow === 5
         ? <Information
+        window={this.props.currentWindow}
         title="Ayuda"
+        margin={this.props.shoppingCart}
         close={this.props.showCurrentWindow}
-        innerHTML={<Help />}/>
+        innerHTML={<Help />}
+        />
         : this.props.currentWindow === 4
         ? <Information
+        window={this.props.currentWindow}
         title="Carrito de compras"
+        margin={this.props.shoppingCart}
         close={this.props.showCurrentWindow}
         innerHTML={
         <ShoppingCart
+        allProducts={this.props.allProducts}
         shoppingCart={this.props.shoppingCart}
         deleteItem={this.deleteItem}
         removeAll={this.props.deleteItem}
@@ -168,7 +181,9 @@ class Header extends Component{
         />
         : this.props.currentWindow === 3
         ? <Information
+        window={this.props.currentWindow}
         title="Tus gastos"
+        margin={this.props.shoppingCart}
         close={this.props.showCurrentWindow}
         innerHTML={
         <Expenses
@@ -179,7 +194,9 @@ class Header extends Component{
         />
         : this.props.currentWindow === 2
         ? <Information
+        window={this.props.currentWindow}
         title="Tu cartera"
+        margin={this.props.shoppingCart}
         close={this.props.showCurrentWindow}
         innerHTML={
         <Wallet
@@ -188,7 +205,9 @@ class Header extends Component{
         />
         : this.props.currentWindow === 1
         ? <Information
+        window={this.props.currentWindow}
         title="Añade dinero a tu cartera"
+        margin={this.props.shoppingCart}
         close={this.props.showCurrentWindow}
         innerHTML={
         <AddMoney 

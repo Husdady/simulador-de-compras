@@ -1,9 +1,29 @@
 import React, {Component, Fragment} from 'react';
+import showMessage from '../../js/message';
+import celulares from '../../json/celulares';
 import buyProducts from '../../js/buy-products';
 import Icon from '../assets/Icon';
 import './css/product-added.css';
 
 class ShoppingCart extends Component{
+
+  reduceStock = (e, condition) =>{
+    let nameProduct = e.target.parentElement.getElementsByClassName('name-product')[0].textContent, stock = e.target.parentElement.getElementsByClassName('stock')[0].textContent;
+
+    this.props.allProducts.map(x =>{
+      if (condition === true){
+        if (x.modelo.includes(nameProduct)){
+          x.stock = x.stock - stock;
+        }
+      } else {
+        this.props.shoppingCart.filter(z =>{
+          if (z.model === x.modelo){
+          x.stock = x.stock - z.stock
+          }
+        })
+      }
+    })
+  }
 
   render(){
 
@@ -15,13 +35,13 @@ class ShoppingCart extends Component{
           <img loading="lazy" src={`${process.env.PUBLIC_URL}/${product.image}`} alt={product.model} title={product.model} />
         </figure>
 
-        <div className="information-product-added">Se añadió al carrito <span className="stock">{product.stock}</span> {product.model}.
+        <div className="information-product-added">Se añadió al carrito <span className="stock">{product.stock}</span> <span className="name-product">{product.model}</span>.
 
           <span><b>Total a pagar:</b> $/. <span className="total-price">{product.totalPrice}</span></span>
 
           <button className="buy"
           onClick={ e => {
-          
+
           const totalPrice =  e.target.parentElement.getElementsByClassName('total-price')[0].textContent;
           
           buyProducts(
@@ -38,6 +58,9 @@ class ShoppingCart extends Component{
             product.model,
             this.props.shoppingCart
           );
+
+          this.reduceStock(e, true);
+
           }
             }
               }
@@ -58,14 +81,15 @@ class ShoppingCart extends Component{
     ))
 
     return(
-      <Fragment> 
+      <Fragment>
+        
         { this.props.shoppingCart.length > 0
         ? <div id="wrapper">
 
         {products}
 
         <button id="buy-all"
-        onClick={ () => {
+        onClick={ e => {
         let allPrices = 0;
         this.props.shoppingCart.map(x => allPrices = allPrices + Number(x.totalPrice));
           
@@ -80,6 +104,7 @@ class ShoppingCart extends Component{
             this.props.buyAll();
             this.props.spendMoney(allPrices);
             this.props.removeAll([]);
+            this.reduceStock(e, false);
            }
           }
         }>
@@ -87,7 +112,14 @@ class ShoppingCart extends Component{
         </button>
 
         <button id="delete-all-products"
-        onClick={ () => { this.props.removeAll([]) } }>
+        onClick={ () => {
+          this.props.removeAll([]);
+          showMessage(
+            'check',
+            'El historial ha sido eliminado correctamente',
+            'fa-check-circle'
+          )
+        }}>
           <Icon iconName="fas fa-trash-alt trash" iconStyle={{padding: 0, color:'black'}} />&nbsp;&nbsp;Borrar historial
         </button>
 

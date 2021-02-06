@@ -1,11 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import Icon from '../assets/Icon';
-import Swal from 'sweetalert2';
+import showMessage from '../../js/message';
 
 class AddMoney extends Component{
-  state = {
-    money: 0
-  }
   componentDidMount(){
     document.getElementById('add-money').value = 0;
   }
@@ -18,21 +15,17 @@ class AddMoney extends Component{
     value = document.getElementById('add-money').value;
 
     if (value === '' || condition.test(value)){
-      Swal.fire({
-        showConfirmButton: false,
-        padding: '10px 0',
-        background: 'rgba(255,255,255,0.8)',
-        html:
-        '<span id="danger" class="alert">Se produjo un error al añadir dinero, Por favor ingrese un valor válido <i class="fas fa-window-close"></i></span>'
-      })
+      showMessage(
+        'danger',
+        'Se produjo un error al añadir dinero, Por favor ingrese un valor válido',
+        'fa-window-close'
+      )
     } else {
-      Swal.fire({
-        showConfirmButton: false,
-        padding: '10px 0',
-        background: 'rgba(255,255,255,0.8)',
-        html:
-        '<span id="check" class="alert">Se añadido dinero correctamente a tu cartera <i class="fas fa-check-circle"></i></span>'
-      })
+      showMessage(
+        'check',
+        'Se añadido dinero correctamente a tu cartera',
+        'fa-check-circle'
+      )
       
       return document.getElementById('add-money').value;
     }
